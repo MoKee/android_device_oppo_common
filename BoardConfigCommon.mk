@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2014 The MoKee OpenSource Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 
 BOARD_VENDOR := oppo
 
-# CM Hardware
-BOARD_HARDWARE_CLASS += device/oppo/common/cmhw
+# MK Hardware
+BOARD_HARDWARE_CLASS += device/oppo/common/mkhw
 
 # MSM Init
 TARGET_INIT_VENDOR_LIB := libinit_msm_oppo
