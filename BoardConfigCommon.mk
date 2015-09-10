@@ -17,7 +17,10 @@
 BOARD_VENDOR := oppo
 
 # MK Hardware
-BOARD_HARDWARE_CLASS += device/oppo/common/mkhw
+BOARD_USES_MOKEE_HARDWARE := true
+BOARD_HARDWARE_CLASS += \
+    device/oppo/common/mkhw \
+    hardware/mokee
 
 # MSM Init
 TARGET_INIT_VENDOR_LIB := libinit_msm_oppo
@@ -28,3 +31,4 @@ TARGET_POWERHAL_VARIANT := qcom
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oppo
 TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/common
+
