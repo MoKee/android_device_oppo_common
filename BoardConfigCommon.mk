@@ -20,7 +20,7 @@ BOARD_VENDOR := oppo
 BOARD_USES_MOKEE_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     device/oppo/common/mkhw \
-    hardware/mokee
+    hardware/mokee/mkhw
 
 # MSM Init
 TARGET_INIT_VENDOR_LIB := libinit_msm_oppo
