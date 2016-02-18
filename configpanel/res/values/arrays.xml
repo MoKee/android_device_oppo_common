@@ -18,7 +18,6 @@
 
     <string-array name="notification_slider_action_entries" translatable="false">
         <item>@string/total_silence</item>
-        <item>@string/alarms_only</item>
         <item>@string/priority_only</item>
         <item>@string/none</item>
     </string-array>
@@ -27,7 +26,6 @@
         <item>600</item>
         <item>601</item>
         <item>602</item>
-        <item>603</item>
     </string-array>
 
 </resources>

@@ -58,9 +58,8 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_LTR_SCANCODE = 253;
     private static final int GESTURE_GTR_SCANCODE = 254;
     private static final int MODE_TOTAL_SILENCE = 600;
-    private static final int MODE_ALARMS_ONLY = 601;
-    private static final int MODE_PRIORITY_ONLY = 602;
-    private static final int MODE_NONE = 603;
+    private static final int MODE_PRIORITY_ONLY = 601;
+    private static final int MODE_NONE = 602;
 
     private static final int GESTURE_WAKELOCK_DURATION = 3000;
 
@@ -72,7 +71,6 @@ public class KeyHandler implements DeviceKeyHandler {
         GESTURE_LTR_SCANCODE,
         GESTURE_GTR_SCANCODE,
         MODE_TOTAL_SILENCE,
-        MODE_ALARMS_ONLY,
         MODE_PRIORITY_ONLY,
         MODE_NONE
     };
@@ -163,6 +161,9 @@ public class KeyHandler implements DeviceKeyHandler {
         public void handleMessage(Message msg) {
             switch (msg.arg1) {
             case FLIP_CAMERA_SCANCODE:
+			    mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
+			    doHapticFeedback();
+				break;
             case GESTURE_CIRCLE_SCANCODE:
                 mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
 
@@ -197,9 +198,6 @@ public class KeyHandler implements DeviceKeyHandler {
                 break;
             case MODE_TOTAL_SILENCE:
                 setZenMode(Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
-                break;
-            case MODE_ALARMS_ONLY:
-                setZenMode(Settings.Global.ZEN_MODE_ALARMS);
                 break;
             case MODE_PRIORITY_ONLY:
                 setZenMode(Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
