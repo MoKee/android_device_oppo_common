@@ -24,7 +24,7 @@ import com.cyanogenmod.settings.device.utils.Constants;
 import com.cyanogenmod.settings.device.utils.FileUtils;
 import com.cyanogenmod.settings.device.utils.NodePreferenceActivity;
 
-import org.cyanogenmod.internal.util.ScreenType;
+import org.mokee.internal.util.ScreenType;
 
 public class SliderSettings extends NodePreferenceActivity {
 
