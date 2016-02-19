@@ -55,4 +55,14 @@
   <string name="touchscreen_extras">附加功能</string>
   <string name="haptic_feedback">触觉反馈</string>
   <string name="haptic_feedback_summary">检测到手势时振动</string>
+  <!-- Notification slider -->
+  <string name="notification_slider">三段式</string>
+  <string name="action">动作</string>
+  <string name="top_position">上</string>
+  <string name="middle_position">中</string>
+  <string name="bottom_position">下</string>
+  <string name="total_silence">勿扰模式</string>
+  <string name="alarms_only">闹铃模式</string>
+  <string name="priority_only">静音模式</string>
+  <string name="none">响铃模式</string>
 </resources>
