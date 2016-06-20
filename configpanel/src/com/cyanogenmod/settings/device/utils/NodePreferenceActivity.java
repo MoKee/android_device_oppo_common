@@ -27,6 +27,7 @@ import android.view.MenuItem;
 
 import java.io.File;
 
+import org.mokee.internal.util.FileUtils;
 import org.mokee.internal.util.ScreenType;
 
 public class NodePreferenceActivity extends PreferenceActivity
