@@ -43,7 +43,7 @@ import android.view.MenuItem;
 
 import com.cyanogenmod.settings.device.utils.Constants;
 
-import org.cyanogenmod.internal.util.ScreenType;
+import org.mokee.internal.util.ScreenType;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -44,7 +44,7 @@ import java.io.File;
 
 import com.cyanogenmod.settings.device.utils.Constants;
 
-import org.cyanogenmod.internal.util.FileUtils;
+import org.mokee.internal.util.FileUtils;
 
 public class Startup extends BroadcastReceiver {
 
@@ -53,7 +53,7 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent intent) {
         final String action = intent.getAction();
-        if (cyanogenmod.content.Intent.ACTION_INITIALIZE_CM_HARDWARE.equals(action)) {
+        if (mokee.content.Intent.ACTION_INITIALIZE_MK_HARDWARE.equals(action)) {
             // Disable touchscreen gesture settings if needed
             if (!hasTouchscreenGestures()) {
                 disableComponent(context, TouchscreenGestureSettings.class.getName());
@@ -132,7 +132,7 @@ public class Startup extends BroadcastReceiver {
             if (hasOClick()) {
                 updateOClickServiceState(context);
             }
-        } else if (intent.getAction().equals("cyanogenmod.intent.action.GESTURE_CAMERA")) {
+        } else if (intent.getAction().equals("mokee.intent.action.GESTURE_CAMERA")) {
             long now = SystemClock.uptimeMillis();
             sendInputEvent(new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
                     KeyEvent.KEYCODE_CAMERA, 0, 0,
@@ -146,7 +146,7 @@ public class Startup extends BroadcastReceiver {
             boolean enable) {
         PendingIntent pendingIntent = null;
         if (enable) {
-            Intent doubleTapIntent = new Intent("cyanogenmod.intent.action.GESTURE_CAMERA", null);
+            Intent doubleTapIntent = new Intent("mokee.intent.action.GESTURE_CAMERA", null);
             pendingIntent = PendingIntent.getBroadcastAsUser(
                     context, 0, doubleTapIntent, 0, UserHandle.CURRENT);
         }
