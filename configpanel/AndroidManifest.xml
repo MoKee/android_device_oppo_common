@@ -105,7 +105,7 @@
         <receiver android:name=".Startup" >
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="cyanogenmod.intent.action.GESTURE_CAMERA" />
+                <action android:name="mokee.intent.action.GESTURE_CAMERA" />
                 <action android:name="mokee.intent.action.INITIALIZE_MK_HARDWARE" />
             </intent-filter>
         </receiver>

@@ -131,7 +131,7 @@ public class Startup extends BroadcastReceiver {
             if (hasOClick()) {
                 updateOClickServiceState(context);
             }
-        } else if (intent.getAction().equals("cyanogenmod.intent.action.GESTURE_CAMERA")) {
+        } else if (intent.getAction().equals("mokee.intent.action.GESTURE_CAMERA")) {
             long now = SystemClock.uptimeMillis();
             sendInputEvent(new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
                     KeyEvent.KEYCODE_CAMERA, 0, 0,
@@ -145,7 +145,7 @@ public class Startup extends BroadcastReceiver {
             boolean enable) {
         PendingIntent pendingIntent = null;
         if (enable) {
-            Intent doubleTapIntent = new Intent("cyanogenmod.intent.action.GESTURE_CAMERA", null);
+            Intent doubleTapIntent = new Intent("mokee.intent.action.GESTURE_CAMERA", null);
             pendingIntent = PendingIntent.getBroadcastAsUser(
                     context, 0, doubleTapIntent, 0, UserHandle.CURRENT);
         }
