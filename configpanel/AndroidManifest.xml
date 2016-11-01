@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
-    <uses-permission android:name="cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS" />
+    <uses-permission android:name="mokee.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
     <uses-sdk
@@ -31,7 +31,7 @@
 
     <application
         android:icon="@mipmap/ic_launcher_settings"
-        android:label="@*cyanogenmod.platform:string/device_settings_app_name"
+        android:label="@*mokee.platform:string/device_settings_app_name"
         android:theme="@style/Theme.Main"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
@@ -67,7 +67,7 @@
 
         <activity
             android:name=".TouchscreenGestureSettings"
-            android:label="@*cyanogenmod.platform:string/screen_gestures_panel_title">
+            android:label="@*mokee.platform:string/screen_gestures_panel_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
@@ -107,8 +107,8 @@
         <receiver android:name=".Startup" >
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="cyanogenmod.intent.action.GESTURE_CAMERA" />
-                <action android:name="cyanogenmod.intent.action.INITIALIZE_CM_HARDWARE" />
+                <action android:name="mokee.intent.action.GESTURE_CAMERA" />
+                <action android:name="mokee.intent.action.INITIALIZE_MK_HARDWARE" />
             </intent-filter>
         </receiver>
     </application>
