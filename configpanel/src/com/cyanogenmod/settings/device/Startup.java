@@ -83,6 +83,7 @@ public class Startup extends BroadcastReceiver {
                 disableComponent(context, ButtonSettings.class.getName());
             } else {
                 enableComponent(context, ButtonSettings.class.getName());
+                ButtonSettings.restoreSliderStates(context);
 
                 // Restore nodes to saved preference values
                 for (String pref : Constants.sButtonPrefKeys) {

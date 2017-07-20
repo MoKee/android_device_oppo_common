@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015-2016 The CyanogenMod Project
+ *               2017 The MoKee Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +19,10 @@ package com.cyanogenmod.settings.device;
 
 import android.Manifest;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -38,9 +41,16 @@ import android.util.SparseIntArray;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
-import com.android.internal.util.ArrayUtils;
+
+import java.util.Arrays;
 
 import mokee.providers.MKSettings;
+
+import org.mokee.settings.device.SliderControllerBase;
+import org.mokee.settings.device.slider.NotificationController;
+import org.mokee.settings.device.slider.FlashlightController;
+import org.mokee.settings.device.slider.BrightnessController;
+import org.mokee.settings.device.slider.RotationController;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -55,6 +65,12 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_NONE = 603;
 
     private static final int GESTURE_WAKELOCK_DURATION = 3000;
+
+    private static final String ACTION_UPDATE_SLIDER_SETTINGS
+            = "com.cyanogenmod.settings.device.UPDATE_SLIDER_SETTINGS";
+
+    private static final String EXTRA_SLIDER_USAGE = "usage";
+    private static final String EXTRA_SLIDER_ACTIONS = "actions";
 
     private static final SparseIntArray sSupportedSliderModes = new SparseIntArray();
     static {
@@ -76,6 +92,49 @@ public class KeyHandler implements DeviceKeyHandler {
     WakeLock mGestureWakeLock;
     private int mProximityTimeOut;
     private boolean mProximityWakeSupported;
+
+    private final NotificationController mNotificationController;
+    private final FlashlightController mFlashlightController;
+    private final BrightnessController mBrightnessController;
+    private final RotationController mRotationController;
+
+    private SliderControllerBase mSliderController;
+
+    private final BroadcastReceiver mUpdateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int usage = intent.getIntExtra(EXTRA_SLIDER_USAGE, 0);
+            int[] actions = intent.getIntArrayExtra(EXTRA_SLIDER_ACTIONS);
+
+            Log.d(TAG, "update usage " + usage + " with actions " +
+                    Arrays.toString(actions));
+
+            if (mSliderController != null) {
+                mSliderController.reset();
+            }
+
+            switch (usage) {
+                case NotificationController.ID:
+                    mSliderController = mNotificationController;
+                    mSliderController.update(actions);
+                    break;
+                case FlashlightController.ID:
+                    mSliderController = mFlashlightController;
+                    mSliderController.update(actions);
+                    break;
+                case BrightnessController.ID:
+                    mSliderController = mBrightnessController;
+                    mSliderController.update(actions);
+                    break;
+                case RotationController.ID:
+                    mSliderController = mRotationController;
+                    mSliderController.update(actions);
+                    break;
+            }
+
+            mSliderController.restoreState();
+        }
+    };
 
     public KeyHandler(Context context) {
         mContext = context;
@@ -103,6 +162,14 @@ public class KeyHandler implements DeviceKeyHandler {
         if (mVibrator == null || !mVibrator.hasVibrator()) {
             mVibrator = null;
         }
+
+        mNotificationController = new NotificationController(context);
+        mFlashlightController = new FlashlightController(context);
+        mBrightnessController = new BrightnessController(context);
+        mRotationController = new RotationController(context);
+
+        mContext.registerReceiver(mUpdateReceiver,
+                new IntentFilter(ACTION_UPDATE_SLIDER_SETTINGS));
     }
 
     private class EventHandler extends Handler {
@@ -128,7 +195,9 @@ public class KeyHandler implements DeviceKeyHandler {
         int scanCode = event.getScanCode();
         boolean isKeySupported = scanCode == FLIP_CAMERA_SCANCODE;
         boolean isSliderModeSupported = sSupportedSliderModes.indexOfKey(scanCode) >= 0;
-        if (!isKeySupported && !isSliderModeSupported) {
+        boolean isSliderControllerSupported = mSliderController != null &&
+                mSliderController.isSupported(scanCode);
+        if (!isKeySupported && !isSliderModeSupported && !isSliderControllerSupported) {
             return false;
         }
 
@@ -148,6 +217,8 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isSliderModeSupported) {
             mNotificationManager.setZenMode(sSupportedSliderModes.get(scanCode), null, TAG);
             doHapticFeedback();
+        } else if (isSliderControllerSupported) {
+            mSliderController.processEvent(scanCode);
         } else if (!mEventHandler.hasMessages(GESTURE_REQUEST)) {
             Message msg = getMessageForKeyEvent(scanCode);
             boolean defaultProximity = mContext.getResources().getBoolean(
