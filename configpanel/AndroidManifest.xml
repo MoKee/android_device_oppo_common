@@ -26,6 +26,8 @@
     <uses-permission android:name="mokee.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
+    <protected-broadcast android:name="com.cyanogenmod.settings.device.UPDATE_SLIDER_SETTINGS" />
+
     <uses-sdk
         android:minSdkVersion="24" />
 
