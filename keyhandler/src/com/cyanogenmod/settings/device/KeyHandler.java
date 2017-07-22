@@ -50,6 +50,7 @@ import org.mokee.settings.device.slider.NotificationController;
 import org.mokee.settings.device.slider.FlashlightController;
 import org.mokee.settings.device.slider.BrightnessController;
 import org.mokee.settings.device.slider.RotationController;
+import org.mokee.settings.device.slider.RingerController;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -82,6 +83,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private final FlashlightController mFlashlightController;
     private final BrightnessController mBrightnessController;
     private final RotationController mRotationController;
+    private final RingerController mRingerController;
 
     private SliderControllerBase mSliderController;
 
@@ -113,6 +115,10 @@ public class KeyHandler implements DeviceKeyHandler {
                     break;
                 case RotationController.ID:
                     mSliderController = mRotationController;
+                    mSliderController.update(actions);
+                    break;
+                case RingerController.ID:
+                    mSliderController = mRingerController;
                     mSliderController.update(actions);
                     break;
             }
@@ -150,6 +156,7 @@ public class KeyHandler implements DeviceKeyHandler {
         mFlashlightController = new FlashlightController(context);
         mBrightnessController = new BrightnessController(context);
         mRotationController = new RotationController(context);
+        mRingerController = new RingerController(context);
 
         mContext.registerReceiver(mUpdateReceiver,
                 new IntentFilter(ACTION_UPDATE_SLIDER_SETTINGS));

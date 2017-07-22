@@ -37,6 +37,7 @@
         <item>@string/notification_slider_for_flashlight</item>
         <item>@string/notification_slider_for_brightness</item>
         <item>@string/notification_slider_for_rotation</item>
+        <item>@string/notification_slider_for_ringer</item>
     </string-array>
 
     <string-array name="notification_slider_usage_entry_values" translatable="false">
@@ -44,6 +45,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="notification_slider_mode_entries" translatable="false">
@@ -96,6 +98,18 @@
         <item>41</item>
         <item>42</item>
         <item>43</item>
+    </string-array>
+
+    <string-array name="notification_slider_ringer_entries" translatable="false">
+        <item>@string/notification_slider_ringer_normal</item>
+        <item>@string/notification_slider_ringer_vibrate</item>
+        <item>@string/notification_slider_ringer_silent</item>
+    </string-array>
+
+    <string-array name="notification_slider_ringer_entry_values" translatable="false">
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
     </string-array>
 
 </resources>
