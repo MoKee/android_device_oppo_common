@@ -21,6 +21,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.util.Log;
 
 import org.mokee.settings.device.SliderControllerBase;
@@ -42,12 +43,16 @@ public final class FlashlightController extends SliderControllerBase {
     private String mCameraId;
     private boolean mTorchEnabled = false;
 
+    private PowerManager.WakeLock mWakeLock;
+
     private final Handler mBlinkHandler = new Handler();
     private final Runnable mBlinkRunnble = new Runnable() {
         @Override
         public void run() {
             if (setTorchMode(!mTorchEnabled)) {
                 mBlinkHandler.postDelayed(this, BLINK_INTERVAL);
+            } else {
+                mWakeLock.release();
             }
         }
     };
@@ -55,6 +60,9 @@ public final class FlashlightController extends SliderControllerBase {
     public FlashlightController(Context context) {
         super(context);
         mCameraManager = getSystemService(Context.CAMERA_SERVICE);
+
+        PowerManager pm = getSystemService(Context.POWER_SERVICE);
+        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
     }
 
     @Override
@@ -65,17 +73,24 @@ public final class FlashlightController extends SliderControllerBase {
             case FLASHLIGHT_OFF:
                 succeed = setTorchMode(false);
                 mBlinkHandler.removeCallbacksAndMessages(null);
+                if (mWakeLock.isHeld()) {
+                    mWakeLock.release();
+                }
                 return succeed;
             case FLASHLIGHT_ON:
                 mCameraId = getCameraId();
                 succeed = setTorchMode(true);
                 mBlinkHandler.removeCallbacksAndMessages(null);
+                if (mWakeLock.isHeld()) {
+                    mWakeLock.release();
+                }
                 return succeed;
             case FLASHLIGHT_BLINK:
                 mBlinkHandler.removeCallbacksAndMessages(null);
                 mCameraId = getCameraId();
-                if (mCameraId != null) {
-                    mBlinkHandler.post(mBlinkRunnble);
+                if (setTorchMode(true)) {
+                    mWakeLock.acquire();
+                    mBlinkHandler.postDelayed(mBlinkRunnble, BLINK_INTERVAL);
                     return true;
                 } else {
                     return false;
@@ -87,8 +102,11 @@ public final class FlashlightController extends SliderControllerBase {
 
     @Override
     public void reset() {
-        mBlinkHandler.removeCallbacksAndMessages(null);
         setTorchMode(false);
+        mBlinkHandler.removeCallbacksAndMessages(null);
+        if (mWakeLock.isHeld()) {
+            mWakeLock.release();
+        }
     }
 
     private boolean setTorchMode(boolean enabled) {
