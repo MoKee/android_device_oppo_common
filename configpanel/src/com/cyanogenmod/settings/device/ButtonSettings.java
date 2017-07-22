@@ -100,6 +100,10 @@ public class ButtonSettings extends NodePreferenceActivity {
                 return updateSliderActions(
                         R.array.notification_slider_rotation_entries,
                         R.array.notification_slider_rotation_entry_values);
+            case Constants.NOTIF_SLIDER_FOR_RINGER:
+                return updateSliderActions(
+                        R.array.notification_slider_ringer_entries,
+                        R.array.notification_slider_ringer_entry_values);
             default:
                 return false;
         }
@@ -258,6 +262,8 @@ public class ButtonSettings extends NodePreferenceActivity {
                 return R.array.config_defaultSliderActionsForBrightness;
             case Constants.NOTIF_SLIDER_FOR_ROTATION:
                 return R.array.config_defaultSliderActionsForRotation;
+            case Constants.NOTIF_SLIDER_FOR_RINGER:
+                return R.array.config_defaultSliderActionsForRinger;
             default:
                 return 0;
         }

@@ -60,6 +60,7 @@ public class Constants {
     public static final String NOTIF_SLIDER_FOR_FLASHLIGHT = "2";
     public static final String NOTIF_SLIDER_FOR_BRIGHTNESS = "3";
     public static final String NOTIF_SLIDER_FOR_ROTATION = "4";
+    public static final String NOTIF_SLIDER_FOR_RINGER = "5";
 
     public static final String ACTION_UPDATE_SLIDER_SETTINGS
             = "com.cyanogenmod.settings.device.UPDATE_SLIDER_SETTINGS";
