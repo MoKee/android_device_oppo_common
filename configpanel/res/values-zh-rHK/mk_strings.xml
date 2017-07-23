@@ -30,7 +30,7 @@
   <string name="notification_slider_brightness_brightest">最亮</string>
   <string name="notification_slider_brightness_darkest">最暗</string>
   <string name="notification_slider_rotation_auto">自動</string>
-  <string name="notification_slider_rotation_portrait">肖像</string>
+  <string name="notification_slider_rotation_portrait">垂直</string>
   <string name="notification_slider_rotation_landscape_90">橫向 (90°)</string>
   <string name="notification_slider_rotation_landscape_270">橫向 (270°)</string>
   <string name="notification_slider_ringer_normal">正常</string>

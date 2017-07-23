@@ -17,13 +17,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Notification slider -->
+  <string name="notification_slider_usage_title">Kaydırma çubuğunu şunun için kullan</string>
   <string name="notification_slider_for_notification">Bildirim</string>
+  <string name="notification_slider_for_flashlight">El feneri</string>
   <string name="notification_slider_for_brightness">Parlaklık</string>
+  <string name="notification_slider_for_rotation">Ekran döndürme</string>
+  <string name="notification_slider_for_ringer">Zil sesi</string>
   <string name="notification_slider_flashlight_off">Kapat</string>
   <string name="notification_slider_flashlight_on">Açık</string>
+  <string name="notification_slider_flashlight_blink">Yanıp sönme</string>
   <string name="notification_slider_brightness_auto">Otomatik</string>
+  <string name="notification_slider_brightness_brightest">En parlak</string>
+  <string name="notification_slider_brightness_darkest">En karanlık</string>
   <string name="notification_slider_rotation_auto">Otomatik</string>
   <string name="notification_slider_rotation_portrait">Portre</string>
+  <string name="notification_slider_rotation_landscape_90">Yatay (90°)</string>
+  <string name="notification_slider_rotation_landscape_270">Yatay (270°)</string>
   <string name="notification_slider_ringer_normal">Normal</string>
   <string name="notification_slider_ringer_vibrate">Titreşim</string>
   <string name="notification_slider_ringer_silent">Sessiz</string>

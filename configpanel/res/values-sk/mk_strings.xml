@@ -22,6 +22,7 @@
   <string name="notification_slider_for_flashlight">Baterka</string>
   <string name="notification_slider_for_brightness">Jas</string>
   <string name="notification_slider_for_rotation">Otočenie</string>
+  <string name="notification_slider_for_ringer">Zvonenie</string>
   <string name="notification_slider_flashlight_off">Vypnuté</string>
   <string name="notification_slider_flashlight_on">Zapnuté</string>
   <string name="notification_slider_flashlight_blink">Blikanie</string>
