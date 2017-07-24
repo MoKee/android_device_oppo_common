@@ -17,13 +17,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Notification slider -->
+  <string name="notification_slider_usage_title">Используйте слайдер для</string>
   <string name="notification_slider_for_notification">Уведомление</string>
+  <string name="notification_slider_for_flashlight">Вспышка</string>
   <string name="notification_slider_for_brightness">Яркость</string>
+  <string name="notification_slider_for_rotation">Поворот</string>
+  <string name="notification_slider_for_ringer">Звонящий</string>
   <string name="notification_slider_flashlight_off">Отключить</string>
   <string name="notification_slider_flashlight_on">Вкл.</string>
+  <string name="notification_slider_flashlight_blink">Мерцать</string>
   <string name="notification_slider_brightness_auto">Авто</string>
+  <string name="notification_slider_brightness_brightest">Светлее</string>
+  <string name="notification_slider_brightness_darkest">Темнее</string>
   <string name="notification_slider_rotation_auto">Авто</string>
   <string name="notification_slider_rotation_portrait">Портрет</string>
+  <string name="notification_slider_rotation_landscape_90">Ландшафт (90°)</string>
+  <string name="notification_slider_rotation_landscape_270">Ландшафт (270°)</string>
   <string name="notification_slider_ringer_normal">Нормально</string>
   <string name="notification_slider_ringer_vibrate">Вибросигнал</string>
   <string name="notification_slider_ringer_silent">Без звука</string>

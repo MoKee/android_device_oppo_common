@@ -17,13 +17,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Notification slider -->
+  <string name="notification_slider_usage_title">Utilizza cursore per</string>
   <string name="notification_slider_for_notification">Notifiche</string>
+  <string name="notification_slider_for_flashlight">Torcia</string>
   <string name="notification_slider_for_brightness">Luminosità</string>
+  <string name="notification_slider_for_rotation">Rotazione</string>
+  <string name="notification_slider_for_ringer">Suoneria</string>
   <string name="notification_slider_flashlight_off">Spenta</string>
   <string name="notification_slider_flashlight_on">ON</string>
+  <string name="notification_slider_flashlight_blink">Pulsante</string>
   <string name="notification_slider_brightness_auto">Autom.</string>
+  <string name="notification_slider_brightness_brightest">Più brillante</string>
+  <string name="notification_slider_brightness_darkest">Più scuro</string>
   <string name="notification_slider_rotation_auto">Autom.</string>
   <string name="notification_slider_rotation_portrait">Ritratto</string>
+  <string name="notification_slider_rotation_landscape_90">Orizzontale (90°)</string>
+  <string name="notification_slider_rotation_landscape_270">Orizzontale (270°)</string>
   <string name="notification_slider_ringer_normal">Normale</string>
   <string name="notification_slider_ringer_vibrate">Vibrazione</string>
   <string name="notification_slider_ringer_silent">Silenzioso</string>

@@ -22,8 +22,12 @@
   <string name="notification_slider_flashlight_off">Izklopljen</string>
   <string name="notification_slider_flashlight_on">Vklopljeno</string>
   <string name="notification_slider_brightness_auto">Samodejno</string>
+  <string name="notification_slider_brightness_brightest">Najsvetlejše</string>
+  <string name="notification_slider_brightness_darkest">Najtemnejše</string>
   <string name="notification_slider_rotation_auto">Samodejno</string>
   <string name="notification_slider_rotation_portrait">Portret</string>
+  <string name="notification_slider_rotation_landscape_90">Pokrajina (90°)</string>
+  <string name="notification_slider_rotation_landscape_270">Pokrajina (270°)</string>
   <string name="notification_slider_ringer_normal">Običajno</string>
   <string name="notification_slider_ringer_vibrate">Vibriranje</string>
   <string name="notification_slider_ringer_silent">Tiho</string>
