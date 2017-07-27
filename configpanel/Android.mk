@@ -15,6 +15,9 @@
 #
 
 LOCAL_PATH := $(call my-dir)
+
+ifeq ($(strip $(TARGET_USES_OPPO_CONFIGPANEL)), true)
+
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
@@ -34,3 +37,5 @@ LOCAL_RESOURCE_DIR := \
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_PACKAGE)
+
+endif
