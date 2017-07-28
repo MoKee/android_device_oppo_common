@@ -17,14 +17,23 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Notification slider -->
-  <string name="notification_slider_for_notification">Нагадування</string>
+  <string name="notification_slider_usage_title">Використовуйте повзунок для</string>
+  <string name="notification_slider_for_notification">Сповіщення</string>
+  <string name="notification_slider_for_flashlight">Ліхтарик</string>
   <string name="notification_slider_for_brightness">Яскравість</string>
+  <string name="notification_slider_for_rotation">Обертання</string>
+  <string name="notification_slider_for_ringer">Дзвінок</string>
   <string name="notification_slider_flashlight_off">Вимкнути</string>
   <string name="notification_slider_flashlight_on">Увімкнено</string>
+  <string name="notification_slider_flashlight_blink">Блимання</string>
   <string name="notification_slider_brightness_auto">Автоматично</string>
+  <string name="notification_slider_brightness_brightest">Найяскравіше</string>
+  <string name="notification_slider_brightness_darkest">Найтемніше</string>
   <string name="notification_slider_rotation_auto">Автоматично</string>
   <string name="notification_slider_rotation_portrait">Портрет</string>
-  <string name="notification_slider_ringer_normal">Нормально</string>
+  <string name="notification_slider_rotation_landscape_90">Ландшафт (90°)</string>
+  <string name="notification_slider_rotation_landscape_270">Ландшафт (270°)</string>
+  <string name="notification_slider_ringer_normal">Звичайний</string>
   <string name="notification_slider_ringer_vibrate">Вібросигнал</string>
   <string name="notification_slider_ringer_silent">Без звуку</string>
 </resources>
