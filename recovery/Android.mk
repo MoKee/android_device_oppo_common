@@ -2,6 +2,8 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifeq ($(strip $(TARGET_USES_OPPO_UPDATER)), true)
+
 ifneq ($(TARGET_PLATFORM_DEVICE_BASE),)
 LOCAL_CFLAGS += -DUSES_BOOTDEVICE_PATH
 endif
@@ -11,3 +13,5 @@ LOCAL_SRC_FILES := recovery_updater.cpp
 LOCAL_MODULE := librecovery_updater_oppo
 LOCAL_MODULE_TAGS := eng
 include $(BUILD_STATIC_LIBRARY)
+
+endif # TARGET_USES_OPPO_UPDATER

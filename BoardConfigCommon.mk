@@ -30,3 +30,4 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/common
 
 # Legacy OnePlus device trees
 TARGET_USES_OPPO_CONFIGPANEL := true
+TARGET_USES_OPPO_UPDATER := true
