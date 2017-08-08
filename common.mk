@@ -28,5 +28,7 @@ PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
 $(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
 
 # Recovery
+ifeq ($(strip $(TARGET_USES_OPPO_UPDATER)), true)
 PRODUCT_PACKAGES += \
     librecovery_updater_oppo
+endif
