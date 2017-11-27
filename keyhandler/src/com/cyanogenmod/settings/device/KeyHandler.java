@@ -181,26 +181,26 @@ public class KeyHandler implements DeviceKeyHandler {
                 Settings.Secure.USER_SETUP_COMPLETE, 0) != 0;
     }
 
-    public boolean handleKeyEvent(KeyEvent event) {
+    public KeyEvent handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
         boolean isKeySupported = scanCode == FLIP_CAMERA_SCANCODE;
         boolean isSliderControllerSupported = mSliderController != null &&
                 mSliderController.isSupported(scanCode);
         if (!isKeySupported && !isSliderControllerSupported) {
-            return false;
+            return event;
         }
 
         if (!hasSetupCompleted()) {
-            return false;
+            return event;
         }
 
         // We only want ACTION_UP event, except FLIP_CAMERA_SCANCODE
         if (scanCode == FLIP_CAMERA_SCANCODE) {
             if (event.getAction() != KeyEvent.ACTION_DOWN) {
-                return true;
+                return null;
             }
         } else if (event.getAction() != KeyEvent.ACTION_UP) {
-            return true;
+            return null;
         }
 
         if (isSliderControllerSupported) {
@@ -218,7 +218,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 mEventHandler.sendMessage(msg);
             }
         }
-        return true;
+        return null;
     }
 
     private Message getMessageForKeyEvent(int scancode) {
