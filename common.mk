@@ -20,12 +20,12 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Keyhandler
 PRODUCT_PACKAGES += \
     ConfigPanel \
-    org.lineageos.keyhandler
+    org.mokee.keyhandler
 
-PRODUCT_SYSTEM_SERVER_JARS += org.lineageos.keyhandler
+PRODUCT_SYSTEM_SERVER_JARS += org.mokee.keyhandler
 
 # never dexopt the keyhandler
-$(call add-product-dex-preopt-module-config,org.lineageos.keyhandler,disable)
+$(call add-product-dex-preopt-module-config,org.mokee.keyhandler,disable)
 
 # Recovery
 PRODUCT_PACKAGES += \
