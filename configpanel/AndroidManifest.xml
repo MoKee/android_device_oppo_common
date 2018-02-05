@@ -85,6 +85,8 @@
                 <action android:name="mokee.intent.action.INITIALIZE_MK_HARDWARE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".KeyHandler" />
     </application>
 
 </manifest>
