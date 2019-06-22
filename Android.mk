@@ -17,7 +17,9 @@
 LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter oppo oneplus,$(BOARD_VENDOR)),)
+ifeq ($(filter enchilada,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+endif
 endif
