@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package org.mokee.settings.device;
 
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -42,8 +42,8 @@ import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
-import org.lineageos.internal.util.ScreenType;
-import org.lineageos.settings.device.utils.Constants;
+import org.mokee.internal.util.ScreenType;
+import org.mokee.settings.device.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;

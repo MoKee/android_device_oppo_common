@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package org.mokee.settings.device;
 
 import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
@@ -34,8 +34,8 @@ import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import org.lineageos.internal.util.FileUtils;
-import org.lineageos.settings.device.utils.Constants;
+import org.mokee.internal.util.FileUtils;
+import org.mokee.settings.device.utils.Constants;
 
 public class Startup extends BroadcastReceiver {
 
@@ -44,7 +44,7 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
-        if (lineageos.content.Intent.ACTION_INITIALIZE_LINEAGE_HARDWARE.equals(action)) {
+        if (mokee.content.Intent.ACTION_INITIALIZE_MOKEE_HARDWARE.equals(action)) {
             // Disable button settings if needed
             if (!hasButtonProcs()) {
                 disableComponent(context, ButtonSettingsActivity.class.getName());

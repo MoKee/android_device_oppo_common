@@ -14,8 +14,8 @@ android_app {
     privileged: true,
 
     static_libs: [
-        "org.lineageos.platform.internal",
-        "org.lineageos.settings.resources",
+        "org.mokee.platform.internal",
+        "org.mokee.settings.resources",
     ],
 
     optimize: {
